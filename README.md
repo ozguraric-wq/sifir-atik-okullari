@@ -4,7 +4,7 @@ Eskişehir'in 14 ilçesinden Avrupa'ya uzanan sıfır atık eğitim projesi içi
 
 ## Yayın
 
-Site hazır statik dosyalardan oluşur; derleme, paket kurulumu, veritabanı veya API anahtarı gerektirmez.
+Site hazır statik dosyalardan oluşur; uygulama derlemesi, paket kurulumu, veritabanı veya API anahtarı gerektirmez. Görseller, videolar, yazı tipi ve proje belgeleri depoda `deployment/site-assets.tar.gz.*` parçalarında korunur. Yayın akışı bunları doğrulayıp `dist` içine otomatik açar.
 
 1. GitHub'da `sifir-atik-okullari` adlı herkese açık bir depo oluşturun.
 2. Bu klasörün içeriğini, `.github` klasörü dahil, `main` dalına ekleyin.
@@ -17,7 +17,13 @@ Yayın iş akışı [GitHub'ın resmî Pages dokümantasyonunu](https://docs.git
 
 ## Yerelde açma
 
-`dist/index.html` modern bir tarayıcıda açılabilir. Tarayıcı yerel dosyada giriş özelliğini kısıtlarsa proje klasöründe aşağıdaki komutla localhost kullanın:
+Depodan indirilen kaynaklarda önce medya ve belgeleri açın:
+
+```sh
+cat deployment/site-assets.tar.gz.* | tar -xz -C dist
+```
+
+Ardından `dist/index.html` modern bir tarayıcıda açılabilir. Tarayıcı yerel dosyada giriş özelliğini kısıtlarsa proje klasöründe aşağıdaki komutla localhost kullanın:
 
 ```sh
 python3 -m http.server 8080 --directory dist
@@ -57,6 +63,7 @@ dist/assets/site.js             Yerel etkileşimler
 dist/assets/                    Görseller, video, logo, yerel yazı tipi
 dist/belgeler/                  Ana proje PDF ve Word
 .github/workflows/pages.yml     GitHub Pages yayını
+deployment/                    Medya ve belge arşivi; SHA-256 doğrulaması
 ASSET_SOURCES.md                Görsel ve içerik kaynakları
 ```
 
