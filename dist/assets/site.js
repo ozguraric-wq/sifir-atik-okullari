@@ -38,18 +38,11 @@
   const format = new Intl.NumberFormat('tr-TR', {maximumFractionDigits: 1});
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const presentation = $('#presentation');
-  const access = $('#access-screen');
   const video = $('#hero-video');
   const motionButton = $('#motion-toggle');
-  const sessionKey = 'sifir-atik-demo-v1';
-  const expectedHash = '64f1a43827bfa1e35f0bd0827875062ae919aef66ecad51822e652305155b6a8';
   let entered = false;
   let videoVisible = true;
   let motionPaused = false;
-
-  // This is a presentation entrance only, not protection for public files.
-  function sessionRead() { try { return sessionStorage.getItem(sessionKey) === 'open'; } catch { return false; } }
-  function sessionWrite(open) { try { open ? sessionStorage.setItem(sessionKey, 'open') : sessionStorage.removeItem(sessionKey); } catch { /* Private modes may disable storage. */ } }
 
   function setMotionState() {
     const paused = video.paused || motionPaused;
@@ -95,46 +88,11 @@
 
   function enterPresentation(restore = false) {
     entered = true;
-    access.hidden = true;
     presentation.hidden = false;
     presentation.inert = false;
-    sessionWrite(true);
-    $('#password').value = '';
     if (!restore) { window.scrollTo(0, 0); $('#hero-title').focus({preventScroll: true}); }
     startMotion();
   }
-
-  $('#password-toggle').addEventListener('click', () => {
-    const show = $('#password').type === 'password';
-    $('#password').type = show ? 'text' : 'password';
-    $('#password-toggle').textContent = show ? 'Gizle' : 'Göster';
-    $('#password-toggle').setAttribute('aria-pressed', String(show));
-  });
-
-  $$('#access-form input, #access-form button').forEach(el => { el.disabled = false; });
-  $('#access-form').addEventListener('submit', async event => {
-    event.preventDefault();
-    const button = $('#access-form button[type="submit"]');
-    const error = $('#access-error');
-    error.hidden = true;
-    button.disabled = true;
-    button.querySelector('span').textContent = 'Açılıyor…';
-    try {
-      if (!window.crypto?.subtle) throw new Error('Giriş için siteyi HTTPS veya localhost üzerinden açın.');
-      const username = $('#username').value.trim().toLocaleLowerCase('tr-TR');
-      const bytes = new TextEncoder().encode(`${sessionKey}\0${username}\0${$('#password').value}`);
-      const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
-      if (digest !== expectedHash) throw new Error('Kullanıcı adı veya şifre eşleşmedi. Yeniden deneyin.');
-      enterPresentation();
-    } catch (err) {
-      error.textContent = err.message;
-      error.hidden = false;
-      $('#password').focus();
-    } finally {
-      button.disabled = false;
-      button.querySelector('span').textContent = 'Sunumu aç';
-    }
-  });
 
   // Desktop menu and mobile drawer share anchors, but use separate controls.
   const mega = $('#mega-menu');
@@ -196,24 +154,6 @@
     }
   });
   window.matchMedia('(min-width: 961px)').addEventListener('change', event => { if (event.matches) closeDrawer(); else closeMega(); });
-  $$('[data-signout]').forEach(button => button.addEventListener('click', () => {
-    closeDrawer(); closeMega();
-    entered = false;
-    video.pause();
-    sessionWrite(false);
-    presentation.inert = true;
-    presentation.hidden = true;
-    access.hidden = false;
-    $('#password').value = '';
-    $('#password').type = 'password';
-    $('#password-toggle').textContent = 'Göster';
-    $('#password-toggle').setAttribute('aria-pressed', 'false');
-    $('#access-error').hidden = true;
-    try { history.replaceState(null, '', location.pathname + location.search); } catch { /* file: preview */ }
-    window.scrollTo(0, 0);
-    $('#username').focus();
-  }));
-
   const cycle = [
     ['Önce başlangıç<br>noktanı bil.', 'Okul ekibi, güvenli ve yetişkin gözetimindeki ölçümlerle hangi atığın nerede oluştuğunu belirler.', 'Beş okul günü boyunca temiz kağıt atığını kaydedin. Hangi gün daha fazla oluştuğunu birlikte tartışın.', 'Okul atık haritası ve başlangıç ölçümü'],
     ['Atığın arkasındaki<br>alışkanlığı keşfet.', 'Çocuklar bir ürünün kullanım öncesini ve sonrasını düşünür; ihtiyaç, istek ve kaynak kullanımı arasındaki ilişkiyi öğrenir.', 'Bir defterin üretimden sınıfa yolculuğunu çizin. Boş sayfalar varken yeni defter almak gerçekten gerekli mi?', 'Yaşa uygun öğrenme görevleri'],
@@ -352,5 +292,5 @@
   $('#measurement-form').addEventListener('submit', event => { event.preventDefault(); updateMeasurement(); });
   $('#measurement-form').addEventListener('reset', () => { window.setTimeout(updateMeasurement, 0); });
 
-  if (sessionRead()) enterPresentation(true);
+  enterPresentation(true);
 })();

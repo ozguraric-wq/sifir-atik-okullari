@@ -11,29 +11,10 @@
   <title>Sıfır Atık Okulları | Eskişehir</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23123d31'/%3E%3Cpath d='M11 24C10 12 23 10 30 10c0 14-4 20-15 19' fill='%23c4ed86'/%3E%3Cpath d='M11 30l14-14' stroke='%23123d31' stroke-width='3'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/site.css">
-  <script defer src="assets/site.js"></script>
+  <script defer src="assets/site.js?v=public-access"></script>
 </head>
 <body>
-  <section class="access" id="access-screen" aria-labelledby="access-title">
-    <div class="access-brand"><img src="assets/ratel-dijital.webp" alt="Ratel Dijital" width="260" height="130"><span>PROJE SUNUMLARI</span></div>
-    <div class="access-card">
-      <span class="eyebrow">ESKİŞEHİR · EĞİTİM VE DÖNGÜSEL YAŞAM</span>
-      <h1 id="access-title">Sıfır Atık<br>Okulları</h1>
-      <p>Okulda başlayan bir alışkanlık,<br>hayat boyu süren bir değişim.</p>
-      <form id="access-form">
-        <label for="username">Kullanıcı adı</label>
-        <input id="username" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" required disabled>
-        <label for="password">Şifre</label>
-        <div class="password-field"><input id="password" name="password" type="password" autocomplete="current-password" required disabled><button type="button" id="password-toggle" aria-pressed="false" disabled>Göster</button></div>
-        <p id="access-error" class="form-error" role="alert" hidden></p>
-        <button type="submit" class="button primary" disabled><span>Sunumu aç</span><span aria-hidden="true">↗</span></button>
-      </form>
-      <p class="access-note">Proje taslağına ait sunum demosudur. Örnek uygulamalar gerçek öğrenci kaydı oluşturmaz.</p>
-    </div>
-    <div class="access-footer"><span>Ratel Dijital</span><span>KA220-SCH · 2027 hazırlığı</span></div>
-  </section>
-  <noscript><div class="noscript">Etkileşimli sunum için JavaScript’i etkinleştirin. <a href="belgeler/Sifir_Atik_Okullari_Proje_Dosyasi.pdf">Proje dosyasını PDF olarak okuyabilirsiniz.</a></div></noscript>
-  <div id="presentation" hidden inert>
+  <div id="presentation">
     <a class="skip-link" href="#main">İçeriğe geç</a>
     <header class="site-header" id="site-header">
       <a class="brand" href="#baslangic" aria-label="Sıfır Atık Okulları ana sayfa"><span class="brand-mark" aria-hidden="true">S<span>0</span></span><span>Sıfır Atık<br><b>Okulları</b></span></a>
@@ -45,14 +26,14 @@
       <div class="mega-menu" id="mega-menu" hidden>
         <div><span class="eyebrow">PROJEYİ TANIYIN</span><a href="#proje">Amaç ve yaklaşım <span>Çocukların günlük kararlarından başlayan değişim</span></a><a href="#ortaklik">Kurumlar ve görevler <span>İl MEM, Valilik ve önerilen Avrupa ortaklığı</span></a></div>
         <div><span class="eyebrow">UYGULAMAYI KEŞFEDİN</span><a href="#ogrenme">10 öğrenme modülü <span>İki yaş grubuna uygun sınıf deneyimleri</span></a><a href="#aile">Okuldan eve <span>Birlikte yapılabilecek aile görevleri</span></a><a href="#takvim">30 aylık yol haritası <span>Hazırlıktan iki pilot döngüsüne</span></a></div>
-        <div class="mega-feature"><span class="eyebrow">DEĞİŞİMİ GÖRÜN</span><a href="#etki">Ölçüm denemesini aç <span>Örnek verilerle atık azaltımını hesaplayın</span></a><a href="#belgeler">Belgeler ve sık sorulanlar</a><button class="text-button" data-signout>Sunumdan çık</button></div>
+        <div class="mega-feature"><span class="eyebrow">DEĞİŞİMİ GÖRÜN</span><a href="#etki">Ölçüm denemesini aç <span>Örnek verilerle atık azaltımını hesaplayın</span></a><a href="#belgeler">Belgeler ve sık sorulanlar</a></div>
       </div>
     </header>
     <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
     <aside class="mobile-menu" id="mobile-menu" aria-label="Mobil menü" hidden inert>
       <div class="mobile-menu-head"><span>Projeyi keşfet</span><button id="mobile-close" aria-label="Menüyü kapat">×</button></div>
       <nav aria-label="Mobil ana menü"><a href="#proje">Proje <small>01</small></a><a href="#dongu">Nasıl işleyecek? <small>02</small></a><a href="#ogrenme">Öğrenme modülleri <small>03</small></a><a href="#aile">Okuldan eve <small>04</small></a><a href="#eskisehir">14 ilçe ve Avrupa <small>05</small></a><a href="#takvim">30 aylık takvim <small>06</small></a><a href="#etki">Etki denemesi <small>07</small></a><a href="#ortaklik">Kurumlar ve görevler <small>08</small></a><a href="#belgeler">Proje dosyası <small>09</small></a></nav>
-      <button class="text-button" data-signout>Sunumdan çık</button><p>Erasmus+ KA220-SCH<br>2027 başvurusu için proje taslağı</p>
+      <p>Erasmus+ KA220-SCH<br>2027 başvurusu için proje taslağı</p>
     </aside>
     <main id="main">
       <section class="hero" id="baslangic" aria-labelledby="hero-title">
@@ -90,7 +71,7 @@
       <section class="documents-section" id="belgeler"><div class="wrap documents-layout"><div><span class="eyebrow">09 / PROJE DOSYASI</span><h2>Modelin bütününü<br>inceleyin.</h2><p>Hedefler, eğitim yöntemi, iş paketleri, ortaklık, 30 aylık takvim ve uygulama ekleri.</p><span class="document-version">Güncel ana metin · V3.1 · 12 Eylül 2026</span></div><div class="document-links"><a href="belgeler/Sifir_Atik_Okullari_Proje_Dosyasi.pdf" target="_blank" rel="noopener"><span class="file-icon">PDF</span><div><strong>Proje ana dosyası</strong><span>PDF olarak incele · 46 sayfa</span></div><span aria-hidden="true">↗</span></a><a href="belgeler/Sifir_Atik_Okullari_Proje_Dosyasi.docx" download><span class="file-icon">DOCX</span><div><strong>Düzenlenebilir proje dosyası</strong><span>Word belgesini indir</span></div><span aria-hidden="true">↓</span></a></div></div></section>
       <section class="section wrap faq"><div><span class="eyebrow">SIK SORULANLAR</span><h2>Merak edilenler.</h2></div><div class="faq-list"><details><summary>Proje başladı mı, AB desteği alındı mı?<span aria-hidden="true">+</span></summary><p>Hayır. Bu site, Erasmus+ KA220-SCH 2027 başvurusu için hazırlanan proje taslağını tanıtan bir demodur. Hibe kararı, kesin ortaklık veya başlamış bir okul uygulaması ilan etmez. Hedefler planlama değerleridir.</p></details><details><summary>Çocukların telefon kullanması gerekiyor mu?<span aria-hidden="true">+</span></summary><p>Gerekmiyor. Öğrenme ve ölçüm görevleri basılı materyalle de yapılabilir. Dijital kaynaklara öğretmen aracılığıyla erişim planlanır; çocuklara kişisel hesap açılmaz.</p></details><details><summary>Sitedeki örnekler gerçek öğrenci verisi içeriyor mu?<span aria-hidden="true">+</span></summary><p>Hayır. Öğrenme senaryoları ve ölçüm denemesi temsilidir. Bu demo öğrenci kaydı, fotoğraf, aile bilgisi veya okul ölçümü toplamaz. Hesaplamalar yalnızca açık sayfada yapılır.</p></details><details><summary>Okullar nasıl seçilecek?<span aria-hidden="true">+</span></summary><p>Önerilen dağılım; merkez ve kırsal, yaş grupları, erişilebilirlik, yemekhane koşulları ve okul hazırlığını birlikte ele alır. Nihai liste, eğitim otoriteleri ve okul yönetimlerinin değerlendirmesi ve taahhütleriyle kesinleşir. Bu sitede başvuru toplanmaz.</p></details><details><summary>Bu proje yalnızca geri dönüşüm eğitimi mi?<span aria-hidden="true">+</span></summary><p>İçerik; ihtiyacı sorgulama, tüketimi azaltma, yeniden kullanım, onarım, paylaşım, gıda israfını önleme ve doğru ayrıştırmayı birlikte kapsar. Amaç, çocukların günlük kararlarında ölçülebilir bir değişim oluşturmaktır.</p></details><details><summary>2027 başvurusu için hangi adımlar bekleniyor?<span aria-hidden="true">+</span></summary><p>İlgili çağrı rehberi ve elektronik formun doğrulanması, gerçek saha ihtiyaç bulguları, ortak kurumların kesinleşmesi, kurumsal görev onayları ve başvuru belgelerinin tamamlanması gerekir.</p></details></div></section>
     </main>
-    <footer class="footer"><div class="wrap"><div class="footer-top"><a class="brand" href="#baslangic"><span class="brand-mark" aria-hidden="true">S<span>0</span></span><span>Sıfır Atık<br><b>Okulları</b></span></a><p>Okulda öğrenilen.<br>Evde yaşatılan.<br>Birlikte ölçülen.</p><a class="footer-back" href="#baslangic">Başa dön <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><p>Erasmus+ KA220-SCH 2027 proje taslağı. Bu demo resmî bir kurum sitesi veya AB tarafından desteklenmiş proje duyurusu değildir.</p><button data-signout class="text-button">Sunumdan çık</button></div><details class="source-note"><summary>İçerik ve görsel notu</summary><p>İçerik kaynağı: Sıfır Atık Okulları ana proje dosyası V3.1. Sınıf ve bahçe görselleri yapay zekâyla üretilmiş temsilî anlatımlardır; gerçek katılımcı veya pilot okul fotoğrafları değildir. Açılıştaki hareketli görsel bu resimden oluşturulmuştur.</p></details></div></footer>
+    <footer class="footer"><div class="wrap"><div class="footer-top"><a class="brand" href="#baslangic"><span class="brand-mark" aria-hidden="true">S<span>0</span></span><span>Sıfır Atık<br><b>Okulları</b></span></a><p>Okulda öğrenilen.<br>Evde yaşatılan.<br>Birlikte ölçülen.</p><a class="footer-back" href="#baslangic">Başa dön <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><p>Erasmus+ KA220-SCH 2027 proje taslağı. Bu demo resmî bir kurum sitesi veya AB tarafından desteklenmiş proje duyurusu değildir.</p></div><details class="source-note"><summary>İçerik ve görsel notu</summary><p>İçerik kaynağı: Sıfır Atık Okulları ana proje dosyası V3.1. Sınıf ve bahçe görselleri yapay zekâyla üretilmiş temsilî anlatımlardır; gerçek katılımcı veya pilot okul fotoğrafları değildir. Açılıştaki hareketli görsel bu resimden oluşturulmuştur.</p></details></div></footer>
   </div>
 </body>
 </html>
